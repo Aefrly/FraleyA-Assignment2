@@ -1,17 +1,17 @@
-function totalSum(numArray) {
+function totalSum(numbers) {
     let sum = 0;
-    for (const num of numArray) {
+    for (const num of numbers) {
         sum += num;
     }
     return sum;
 }
 
-function highestNumber(numArray) {
-    if (numArray.length === 0) {
+function highestNumber(numbers) {
+    if (numbers.length === 0) {
         return null;
     }
-    let highest = numArray[0];
-    for (const num of numArray) {
+    let highest = numbers[0];
+    for (const num of numbers) {
         if (num > highest) {
             highest = num;
         }
@@ -19,12 +19,12 @@ function highestNumber(numArray) {
     return highest;
 }
 
-function lowestNumber(numArray) {
-    if (numArray.length === 0) {
+function lowestNumber(numbers) {
+    if (numbers.length === 0) {
         return null;
     }
-    let lowest = numArray[0];
-    for (const num of numArray) {
+    let lowest = numbers[0];
+    for (const num of numbers) {
         if (num < lowest) {
             lowest = num;
         }
@@ -32,12 +32,20 @@ function lowestNumber(numArray) {
     return lowest;
 }
 
-function average(numArray) {
-    if (numArray.length === 0) {
+function average(numbers) {
+    if (numbers.length === 0) {
         return null;
     }
-    const sum = totalSum(numArray);
-    return sum / numArray.length;
+    const sum = totalSum(numbers);
+    return sum / numbers.length;
 }
 
 module.exports = { totalSum, highestNumber, lowestNumber, average };
+
+const fs = require('fs');
+const content = fs.readFileSync('../data/sample-numbers.txt', 'utf-8');
+
+console.log(totalSum(content.split('\n').map(Number)));
+console.log(highestNumber(content.split('\n').map(Number)));
+console.log(lowestNumber(content.split('\n').map(Number)));
+console.log(average(content.split('\n').map(Number)));
