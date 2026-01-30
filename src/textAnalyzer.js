@@ -29,8 +29,18 @@ function countLines (text) {
 module.exports = { countWords, longestWord, countLines };
 
 const fs = require('fs');
-const content1 = fs.readFileSync('../data/quotes.txt', 'utf-8');
-const content2 = fs.readFileSync('../data/sample-text.txt', 'utf-8');
+const path = require('path');
+const { countWords, longestWord, countLines } = require('./textAnalyzer');
+
+const content1 = fs.readFileSync(
+    path.join(__dirname, '../data/quotes.txt'),
+    'utf-8'
+);
+
+const content2 = fs.readFileSync(
+    path.join(__dirname, '../data/sample-text.txt'),
+    'utf-8'
+);
 
 console.log(countWords(content1));
 console.log(countWords(content2));
