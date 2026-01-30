@@ -45,8 +45,6 @@ module.exports = { totalSum, highestNumber, lowestNumber, average };
 const fs = require('fs');
 const path = require('path');
 
-const { totalSum, highestNumber, lowestNumber, average } = require('./numberAnalyzer');
-
 const content = fs.readFileSync(path.join(__dirname, '../data/sample-numbers.txt'),'utf-8');
 
 const numbers = content.trim().split('\n').map(Number);
