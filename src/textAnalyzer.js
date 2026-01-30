@@ -30,7 +30,6 @@ module.exports = { countWords, longestWord, countLines };
 
 const fs = require('fs');
 const path = require('path');
-const { countWords, longestWord, countLines } = require('./textAnalyzer');
 
 const content1 = fs.readFileSync(
     path.join(__dirname, '../data/quotes.txt'),
