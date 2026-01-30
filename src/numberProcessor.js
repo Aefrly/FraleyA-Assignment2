@@ -43,9 +43,15 @@ function average(numbers) {
 module.exports = { totalSum, highestNumber, lowestNumber, average };
 
 const fs = require('fs');
-const content = fs.readFileSync('../data/sample-numbers.txt', 'utf-8');
+const path = require('path');
 
-console.log(totalSum(content.split('\n').map(Number)));
-console.log(highestNumber(content.split('\n').map(Number)));
-console.log(lowestNumber(content.split('\n').map(Number)));
-console.log(average(content.split('\n').map(Number)));
+const { totalSum, highestNumber, lowestNumber, average } = require('./numberAnalyzer');
+
+const content = fs.readFileSync(path.join(__dirname, '../data/sample-numbers.txt'),'utf-8');
+
+const numbers = content.trim().split('\n').map(Number);
+
+console.log(totalSum(numbers));
+console.log(highestNumber(numbers));
+console.log(lowestNumber(numbers));
+console.log(average(numbers));
