@@ -1,4 +1,4 @@
-const { countWords, longestWord, countLines } = require('./textAnalyzer.js');
+const { countWords, longestWord, countLines } = require('../src/textAnalyzer.js');
 
 test('should count words in simple text', () => {
     const result = countWords('Hello world test');
