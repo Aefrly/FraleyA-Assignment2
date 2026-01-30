@@ -1,4 +1,4 @@
-const { totalSum, highestNumber, lowestNumber, average } = require('./numberProcessor.js');
+const { totalSum, highestNumber, lowestNumber, average } = require('../src/numberProcessor.js');
 
 test('should find total sum of numbers', () => {
     const result = totalSum([1, 2, 3, 4, 5]);
